@@ -6,13 +6,29 @@
 //allowed. Int and Double numbers are allowed.
 //Please make sure that the input should be entered step by step.
 //All suggestions and comments are welcomed and contribute to improving the code.
+//This is a simplified version!
 
 import java.util.Scanner;
 
 public class Convert{
     public static void main(String[] args){
+
+        String[][] unitData = {{"mi", "1.61","0","km"},
+                                {"in", "2.54","0","cm"},
+                                {"lb", "0.45","0","kg"},
+                                {"oz", "28.35","0","g"},
+                                {"f", "0.5556","-17.7778","C"},
+                                {"cups", "0.24","0","L"},
+                                {"km", "0.62","0","mi"},
+                                {"cm", "0.39","0","in"},
+                                {"kg", "2.21","0","lb"},
+                                {"g", "0.04","0","oz"},
+                                {"L", "4.17","0","cups"},
+                                {"c", "1","273.15","K"}};
+
         System.out.println("WELCOME TO CONVERTER");
         Scanner keyb = new Scanner(System.in);
+
         while(true){//loop program
             System.out.print("please enter a value to convert:");
 
@@ -26,34 +42,24 @@ public class Convert{
                 //STEP2: store and identify unit
                 System.out.print("please enter current unit:");
                 String units = keyb.nextLine().toLowerCase();
-                // System.out.print("unit is"+units);
+                //i for loop data in arrays & count for counting whether the
+                //value is found in arrays.
+                int i = 0;
+                int count = 0;
 
-                if(units.equals("mi")){
-                    System.out.println(number+"mi"+"="+1.61*number+"km");
-                }else if(units.equals("in")){
-                    System.out.print(number+"in"+"="+2.54*number+"cm");
-                }else if(units.equals("lb")){
-                    System.out.println(number+"lb"+"="+0.45*number+"kg");
-                }else if(units.equals("oz")){
-                    System.out.println(number+"oz"+"="+28.35*number+"g");
-                }else if(units.equals("f")){
-                    System.out.println(number+"F"+"="+(number-32)*5/9+"C");
-                }else if(units.equals("cups")){
-                    System.out.println(number+"cups"+"="+0.24*number+"L");
-                }else if(units.equals("km")){
-                    System.out.println(number+"km"+"="+0.62*number+"mi");
-                }else if(units.equals("cm")){
-                    System.out.println(number+"cm"+"="+0.39*number+"in");
-                }else if(units.equals("kg")){
-                    System.out.println(number+"kg"+"="+2.21*number+"lb");
-                }else if(units.equals("g")){
-                    System.out.println(number+"g"+"="+0.04*number+"oz");
-                }else if(units.equals("l")){
-                    System.out.println(number+"L"+"="+4.17*number+"cups");
-                }else if(units.equals("c")){
-                    System.out.println(number+"C"+"="+(number+273.15)+"K");
-                }else{
-                    System.out.println("Unit unavailable.");
+                while (i < 12){
+                    double attri = Double.parseDouble(unitData[i][1]);
+                    double minus = Double.parseDouble(unitData[i][2]);
+                    //data preparation : String arrays to Double
+                    if(units.equals(unitData[i][0])){
+                        System.out.println(number+(unitData[i][0])+"="+(attri*number+minus)+(unitData[i][3]));
+                        count++;
+                        //output and calculation
+                    }
+                    i++;
+                }
+                if(count == 0){
+                    System.out.println("Unit unavailable.");//no found
                 }
 
             }else{
@@ -65,37 +71,27 @@ public class Convert{
                 System.out.print("please enter current unit:");
                 String units = keyb.nextLine().toLowerCase();
 
-                if(units.equals("km")){
-                    System.out.println(number+"km"+"="+0.62*number+"mi");
-                }else if(units.equals("cm")){
-                    System.out.println(number+"cm"+"="+0.39*number+"in");
-                }else if(units.equals("kg")){
-                    System.out.println(number+"kg"+"="+2.21*number+"lb");
-                }else if(units.equals("g")){
-                    System.out.println(number+"g"+"="+0.04*number+"oz");
-                }else if(units.equals("l")){
-                    System.out.println(number+"L"+"="+4.17*number+"cups");
-                }else if(units.equals("c")){
-                    System.out.println(number+"C"+" = "+(number+273.15)+"K");
-                }else if(units.equals("mi")){
-                    System.out.println(number+"mi"+"="+1.61*number+"km");
-                }else if(units.equals("in")){
-                    System.out.println(number+"in"+"="+2.54*number+"cm");
-                }else if(units.equals("lb")){
-                    System.out.println(number+"lb"+"="+0.45*number+"kg");
-                }else if(units.equals("oz")){
-                    System.out.println(number+"oz"+"="+28.35*number+"g");
-                }else if(units.equals("f")){
-                    System.out.println(number+"F"+"="+(number-32)*5/9+"C");
-                }else if(units.equals("cups")){
-                    System.out.println(number+"cups"+"="+0.24*number+"L");
-                }else{
-                    System.out.print("Unit unavailable.");
-                }}//end of identify first input
+                int i = 0;
+                int count = 0;
+                while (i < 12){
+                    double attri = Double.parseDouble(unitData[i][1]);
+                    double minus = Double.parseDouble(unitData[i][2]);
+
+                    if(units.equals(unitData[i][0])){
+                        System.out.println(number+(unitData[i][0])+"="+(attri*number+minus)+(unitData[i][3]));
+                        count++;
+                    }
+                    i++;
+                }
+                if(count == 0){
+                    System.out.println("Unit unavailable.");
+                }
+
+            }//end of identify first input
 
         }//end of while true
 
     }}
 
 
-//2021-09-27 YUJIA JI - FOR STUDY ONLY
+//2021-09-27 YUJIA JI - FOR STUDY ONLY - VERSION 2
