@@ -48,11 +48,11 @@ public class Convert{
                 int count = 0;
 
                 while (i < 12){
-                    double attri = Double.parseDouble(unitData[i][1]);
+                    double mult = Double.parseDouble(unitData[i][1]);
                     double minus = Double.parseDouble(unitData[i][2]);
                     //data preparation : String arrays to Double
                     if(units.equals(unitData[i][0])){
-                        System.out.println(number+(unitData[i][0])+"="+(attri*number+minus)+(unitData[i][3]));
+                        System.out.println(number+(unitData[i][0])+"="+(mult*number+minus)+(unitData[i][3]));
                         count++;
                         //output and calculation
                     }
@@ -74,11 +74,11 @@ public class Convert{
                 int i = 0;
                 int count = 0;
                 while (i < 12){
-                    double attri = Double.parseDouble(unitData[i][1]);
+                    double mult = Double.parseDouble(unitData[i][1]);
                     double minus = Double.parseDouble(unitData[i][2]);
 
                     if(units.equals(unitData[i][0])){
-                        System.out.println(number+(unitData[i][0])+"="+(attri*number+minus)+(unitData[i][3]));
+                        System.out.println(number+(unitData[i][0])+"="+(mult*number+minus)+(unitData[i][3]));
                         count++;
                     }
                     i++;
